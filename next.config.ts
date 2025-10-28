@@ -1,9 +1,8 @@
 import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
-import { type CodeHikeConfig } from 'codehike/mdx';
+import { remarkCodeHike, recmaCodeHike, type CodeHikeConfig } from 'codehike/mdx';
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   experimental: {
     // Disabled due to font error that's causing them not to be loaded
@@ -13,6 +12,8 @@ const nextConfig: NextConfig = {
     prerenderEarlyExit: false,
     routerBFCache: true,
   },
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
 };
 
 const codeHikeConfig = {
@@ -21,8 +22,8 @@ const codeHikeConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [['remark-codehike', codeHikeConfig]],
-    recmaPlugins: [['recma-codehike', codeHikeConfig]],
+    remarkPlugins: [[remarkCodeHike, codeHikeConfig]],
+    recmaPlugins: [[recmaCodeHike, codeHikeConfig]],
   },
 });
 

@@ -9,6 +9,13 @@ const eslintConfig = [
   ...compat.config({
     extends: ['next/core-web-vitals'],
   }),
+  {
+    ignores: [
+      '.open-next/**/*',
+      '.next/**/*',
+      'node_modules/**/*'
+    ]
+  }
 ]
 
 export default eslintConfig

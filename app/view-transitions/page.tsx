@@ -1,5 +1,3 @@
-'use cache';
-
 import db from '#/lib/db';
 import {
   TransitionLink,

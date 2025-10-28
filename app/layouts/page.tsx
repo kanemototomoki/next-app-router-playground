@@ -1,5 +1,3 @@
-'use cache';
-
 import db from '#/lib/db';
 import { Boundary } from '#/ui/boundary';
 import { ProductCard } from '#/ui/product-card';

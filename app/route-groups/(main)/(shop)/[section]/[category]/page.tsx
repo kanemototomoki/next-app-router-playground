@@ -13,8 +13,6 @@ export default async function Page({
 }: {
   params: Promise<{ section: string; category: string }>;
 }) {
-  'use cache';
-
   const { category: categorySlug } = await params;
   const category = db.category.find({ where: { slug: categorySlug } });
   if (!category) {

@@ -1,5 +1,3 @@
-'use cache';
-
 import { Boundary } from '#/ui/boundary';
 import { Mdx } from '#/ui/codehike';
 import { type Metadata } from 'next';
