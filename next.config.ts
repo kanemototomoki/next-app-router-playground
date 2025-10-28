@@ -1,6 +1,5 @@
 import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
-import { remarkCodeHike, recmaCodeHike, type CodeHikeConfig } from 'codehike/mdx';
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
@@ -16,18 +15,9 @@ const nextConfig: NextConfig = {
   eslint: { ignoreDuringBuilds: true },
 };
 
-const codeHikeConfig = {
-  components: { code: 'MyCode', inlineCode: 'MyInlineCode' },
-} satisfies CodeHikeConfig;
-
-const withMDX = createMDX({
-  options: {
-    remarkPlugins: [[remarkCodeHike, codeHikeConfig]],
-    recmaPlugins: [[recmaCodeHike, codeHikeConfig]],
-  },
-});
+const withMDX = createMDX({ options: { remarkPlugins: [], recmaPlugins: [] } });
 
 export default withMDX(nextConfig);
 
-import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare'
-initOpenNextCloudflareForDev()
+import { initOpenNextCloudflareForDev } from '@opennextjs/cloudflare';
+initOpenNextCloudflareForDev();
